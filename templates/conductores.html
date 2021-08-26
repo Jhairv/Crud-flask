@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form class="add-form-container" method="POST">
+	<input class="add-input" name="id" type="text" placeholder="id empleado" required>
+	<input class="add-input" name="nombre" type="text" placeholder="Nombre del empleado" required>
+	<input class="add-input" name="cargo" type="text" placeholder="Cargo" required>
+	<input class="add-input" name="telefono" type="text" placeholder="Telefono" required>
+	<input class="add-input" name="edad" type="text" placeholder="Edad del empleado" required>
+	<input class="add-input" name="direccion" type="text" placeholder="Direccion del empleado" required>
+	<input class="add-btn" id="submit-add" type="submit" value="Agregar Empleado">
+</form>
+<button class="add-btn" id="close">Cerrar</button>
+
+{% endblock %}
+
+{% block crudTable %}
+<thead>
+	<tr>
+		<th>Id Conductor</th>
+		<th>Nombre Conductor</th>
+		<th>Numero de Licencia</th>
+		<th>Id Transporte</th>
+		<th>Marca Vehiculo</th>
+		<th>Placa Transporte</th>
+		<th>Acciones</th>
+	</tr>
+</thead>
+<tbody>
+	{% for conductor in conductores %}
+	<tr>
+		<td>{{conductor[0]}}</td>
+		<td>{{conductor[1]}}</td>
+		<td>{{conductor[2]}}</td>
+		<td>{{conductor[3]}}</td>
+		<td>{{conductor[4]}}</td>
+		<td>{{conductor[5]}}</td>
+		<td>
+			<a href="/edit/{{conductor[0]}}">Editar</a>
+			<a href="/destroy/{{conductor[0]}}">Eliminar</a>
+	</tr>
+	{% endfor %}
+</tbody>
+{% endblock %}
