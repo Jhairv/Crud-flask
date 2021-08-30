@@ -3,14 +3,64 @@
 {% block content %}
 
 <form class="add-form-container" method="POST">
-	<input class="add-input" name="id" type="text" placeholder="id empleado" required>
-	<input class="add-input" name="nombre" type="text" placeholder="Nombre del empleado" required>
-	<input class="add-input" name="cargo" type="text" placeholder="Cargo" required>
-	<input class="add-input" name="telefono" type="text" placeholder="Telefono" required>
-	<input class="add-input" name="edad" type="text" placeholder="Edad del empleado" required>
-	<input class="add-input" name="direccion" type="text" placeholder="Direccion del empleado" required>
-	<input class="add-btn" id="submit-add" type="submit" value="Agregar Empleado">
+	<input class="add-input" name="cedula" type="text" placeholder="Cedula Cliente" required>
+	<input class="add-input" name="nombreC" type="text" placeholder="Nombre del cliente" required>
+	<input class="add-input" name="dirC" type="text" placeholder="Direccion del Cliente" required>
+	<input class="add-input" name="emailC" type="text" placeholder="Email Cliente" required>
+	<input class="add-input" name="telC" type="text" placeholder="Telefono Cliente" required>
+	<input class="add-input" name="idD" type="text" placeholder="Id Destinatario" required>
+	<input class="add-input" name="nomD" type="text" placeholder="Nombre Destinatario" required>
+	<input class="add-input" name="dirD" type="text" placeholder="Direccion Destinatario" required>
+	<input class="add-input" name="emailD" type="text" placeholder="Email destinatario" required>
+	<input class="add-input" name="telD" type="text" placeholder="Telefono destinatario" required>
+	<input class="add-input" name="idP" type="text" placeholder="Id Pedido" required>
+	<input class="add-input" name="idC" type="text" placeholder="Id conductor" required>
+	<input class="add-input" name="desP" type="text" placeholder="Descripcion paquete" required>
+	<input class="add-input" name="uniP" type="text" placeholder="Unidad medida" required>
+	<input class="add-input" name="pesoP" type="text" placeholder="Peso paquete" required>
+	<select name="estadoP">
+	  <option>Registrado</option>
+	  <option>Enviado</option>
+	  <option>Entregado</option>
+	</select>
+
+	<input class="add-btn" id="submit-add" type="submit" value="Agregar Envio">
 </form>
 <button class="add-btn" id="close">Cerrar</button>
 
+{% endblock %}
+
+{% block crudTable %}
+<thead>
+	<tr>
+		<th>Id paquete</th>
+		<th>Descripcion paquete</th>
+		<th>Estado del Paquete </th>
+		<th>Nombre cliente </th>
+		<th>Nombre destinatario</th>
+		<th>Direccion destinatario</th>
+		<th>Nombre conductor</th>
+		<th>Marca Vehiculo</th>
+		<th>Placa Transporte</th>
+		<th>Acciones</th>
+	</tr>
+</thead>
+<tbody>
+	{% for paquete in paquetes%}
+	<tr>
+		<td>{{paquete[0]}}</td>
+		<td>{{paquete[1]}}</td>
+		<td>{{paquete[2]}}</td>
+		<td>{{paquete[3]}}</td>
+		<td>{{paquete[4]}}</td>
+		<td>{{paquete[5]}}</td>
+		<td>{{paquete[6]}}</td>
+		<td>{{paquete[7]}}</td>
+		<td>{{paquete[8]}}</td>
+		<td> 
+		  <a href="/edit/{{paquete[0]}}">Editar</a>
+		  <a href="/destroy/{{paquete[0]}}">Eliminar</a>
+	</tr>
+	{% endfor %}
+</tbody>
 {% endblock %}

@@ -1,16 +1,43 @@
 Formulario de edicion
 
-{% for empleado in empleados %}
+{% for paquete in paquetes%}
 <form class="add-form-container" action="/update" method="POST">
-	<input class="add-input" name="id" id="id" type="text" placeholder="id empleado" value="{{ empleado[0] }}"
-		readonly=»readonly»>
-	<input class="add-input" name="nombre" id="nombre" type="text" placeholder="Nombre del empleado"
-		value="{{ empleado[1] }}">
-	<input class="add-input" name="cargo" id="cargo" type="text" placeholder="Cargo" value="{{ empleado[2] }}">
-	<input class="add-input" name="telefono" id="telefono" type="text" placeholder="Telefono" value="{{ empleado[3] }}">
-	<input class="add-input" name="edad" id="edad" type="text" placeholder="Edad del empleado" value="{{ empleado[4] }}">
-	<input class="add-input" name="direccion" id="direccion" type="text" placeholder="Direccion del empleado"
-		value="{{ empleado[5] }}">
-	<input class="add-btn" id="submit-add" type="submit" value="Editar Empleado">
+	<label for="cedula">Cedula Cliente</label>
+	<input class="add-input" value="{{ paquete[0] }}" id="cedula" name="cedula" type="text" placeholder="Cedula Cliente" required readonly=»readonly»>
+	<label for="nombreC">Nombre el cliente</label>
+	<input class="add-input" value="{{ paquete[1] }}" name="nombreC" id="nombreC" type="text" placeholder="Nombre del cliente" required>
+	<label for="dirC">Direccion del cliente</label>
+	<input class="add-input" value="{{ paquete[2] }}" name="dirC" id="dirC" type="text" placeholder="Direccion del Cliente" required>
+	<label for="emailC">Email Cliente</label>
+	<input class="add-input" value="{{ paquete[3] }}" name="emailC" id="emailC" type="text" placeholder="Email Cliente" required>
+	<label for="telC">Telefono Cliente</label>
+	<input class="add-input" value="{{ paquete[4] }}" name="telC" id="telC" type="text" placeholder="Telefono Cliente" required>
+	<label for="idD">Id Destinatario</label>
+	<input class="add-input" value="{{ paquete[5] }}" name="idD" type="text" id="idD" placeholder="Id Destinatario" required readonly=»readonly»>
+	<label for="nomD">Nombre Destinatario</label>
+	<input class="add-input" value="{{ paquete[6] }}" name="nomD" type="text" id="nomD" placeholder="Nombre Destinatario" required>
+	<label for="dirD">Direccion Destinatario</label>
+	<input class="add-input" value="{{ paquete[7] }}" name="dirD" type="text" id="dirD" placeholder="Direccion Destinatario" required>
+	<label for="emailD">Email Destinatario</label>
+	<input class="add-input" value="{{ paquete[8] }}" name="emailD" type="text" id="emailD" placeholder="Email destinatario" required>
+	<label for="telD">Telefono Destinatario</label>
+	<input class="add-input" value="{{ paquete[9] }}" name="telD" type="text" id="telD" placeholder="Telefono destinatario" required>
+	<label for="idP">ID Paquete</label>
+	<input class="add-input" value="{{ paquete[10] }}" name="idP" type="text" id="idP" placeholder="Id Paquete" required readonly=»readonly»>
+	<label for="desP">Descripcion Paquete</label>
+	<input class="add-input" value="{{ paquete[11] }}" name="desP" type="text" id="desP" placeholder="Descripcion del paquete" required>
+	<label for="uniP">Unidad de medida</label>
+	<input class="add-input" value="{{ paquete[12] }}" name="uniP" type="text" id="uniP" placeholder="Unidad de Medida" required>
+	<label for="pesoP">Peso Paquete</label>
+	<input class="add-input" value="{{ paquete[13] }}" name="pesoP" type="text" id="pesoP" placeholder="Peso Paquete" required >
+	<label for="estadoP">Estado del Paquete</label>
+	<select name="estadoP">
+	  <option>Registrado</option>
+	  <option>Enviado</option>
+	  <option>Entregado</option>
+	</select>
+	<label for="idC">Id del Conductor</label>
+	<input class="add-input" value="{{ paquete[15] }}" name="idC" type="text" id="idC" placeholder="Id Conductor" required>
+	<input class="add-btn" id="submit-add" type="submit" value="Editar Envio">
 </form>
 {% endfor %}

@@ -60,23 +60,35 @@ create table conductores_transportes (
 	foreign key(id_transportes)
 	references transportes(id_transporte)
 )
-select * from transportes
 
-insert into transportes values (
-	5,
-	'MAN',
-	7000
-)
+
+insert into transportes values (1,'Volvo',7000)
+insert into transportes values (2, 'Mercedes', 7000)
+insert into transportes values (3, 'Man', 7000)
+insert into transportes values (4, 'Chevrolet', 7000)
+insert into transportes values (5, 'Mazda', 7000)
 
 select * from conductores
+alter table conductores add column estado varchar(50) not null
+insert into conductores values (1,'Kenneth Ibadango','E','0349382793', 'Disponible')
+insert into conductores values (2,'Jeremy Ramos','E','0349382793', 'Disponible')
+insert into conductores values (3,'Renzo Vascones','E','0349382793', 'Disponible')
+insert into conductores values (4,'Alexander Flores','E','0349382793', 'Disponible')
+insert into conductores values (5,'Israel Restrepo','E','0349382793', 'Disponible')
 
-insert into conductores values (5,'Alexander Vascones','E','0349382793')
+select * from conductores_transportes
+insert into conductores_transportes values (1, 1, 3, 'PVZ-808')
+insert into conductores_transportes values (2, 2, 4, 'PDC-456')
+insert into conductores_transportes values (3, 3, 5, 'PGH-874')
+insert into conductores_transportes values (4, 4, 1, 'PGC-798')
+insert into conductores_transportes values (5, 5, 2, 'PFC-353')
+
 
 select * from conductores_transportes
 
 insert into conductores_transportes values (5, 5, 2, 'GST-6894')
 
-select  nom_conductor, marca_vehiculo, placa_transporte from conductores inner join conductores_transportes on id_conductor = id_conductores
+select  nom_conductor, marca_vehiculo, placa_transporte, estado from conductores inner join conductores_transportes on id_conductor = id_conductores
 inner join transportes on id_transportes = id_transporte
 
 create or replace function InsertInTables (
@@ -126,7 +138,7 @@ select InsertIntables (
 drop function InsertIntables
 select * from destinatario
 select * from clientes
-select * from paquete
+select * from Paquete
 select * from conductores
 select * from transportes
 select * from conductores_transportes

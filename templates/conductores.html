@@ -18,13 +18,10 @@
 {% block crudTable %}
 <thead>
 	<tr>
-		<th>Id Conductor</th>
 		<th>Nombre Conductor</th>
-		<th>Numero de Licencia</th>
-		<th>Id Transporte</th>
 		<th>Marca Vehiculo</th>
-		<th>Placa Transporte</th>
-		<th>Acciones</th>
+		<th>Placa Transportes</th>
+		<th>Estado</th>
 	</tr>
 </thead>
 <tbody>
@@ -34,11 +31,6 @@
 		<td>{{conductor[1]}}</td>
 		<td>{{conductor[2]}}</td>
 		<td>{{conductor[3]}}</td>
-		<td>{{conductor[4]}}</td>
-		<td>{{conductor[5]}}</td>
-		<td>
-			<a href="/edit/{{conductor[0]}}">Editar</a>
-			<a href="/destroy/{{conductor[0]}}">Eliminar</a>
 	</tr>
 	{% endfor %}
 </tbody>
