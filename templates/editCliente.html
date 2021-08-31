@@ -1,0 +1,18 @@
+
+Formulario de edicion Cliente
+
+{% for cliente in clientes%}
+<form class="add-form-container" action="/updateCliente" method="POST">
+	<label for="cedula">Cedula Cliente</label>
+	<input class="add-input" value="{{ cliente[0] }}" id="cedula" name="cedula" type="text" placeholder="Cedula Cliente" required readonly=»readonly»>
+	<label for="nombreC">Nombre el cliente</label>
+	<input class="add-input" value="{{ cliente[1] }}" name="nombreC" id="nombreC" type="text" placeholder="Nombre del cliente" required>
+	<label for="dirC">Direccion del cliente</label>
+	<input class="add-input" value="{{ cliente[2] }}" name="dirC" id="dirC" type="text" placeholder="Direccion del Cliente" required>
+	<label for="emailC">Email Cliente</label>
+	<input class="add-input" value="{{ cliente[3] }}" name="emailC" id="emailC" type="text" placeholder="Email Cliente" required>
+	<label for="telC">Telefono Cliente</label>
+	<input class="add-input" value="{{ cliente[4] }}" name="telC" id="telC" type="text" placeholder="Telefono Cliente" required>
+	<input class="add-btn" id="submit-add" type="submit" value="Editar Cliente">
+</form>
+{% endfor %}

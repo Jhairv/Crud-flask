@@ -97,4 +97,58 @@ def destroy(id):
     conexion.commit()
     return redirect('/')
 
-    
+#Crud Clientes
+
+@app.route('/clientes', methods=['POST', 'GET'])
+def clientes ():
+    if request.method == 'GET':
+        cursor.execute('select * from clientes')
+        clientes = cursor.fetchall()
+        return render_template('clientes.html', clientes = clientes)
+    if request.method == 'POST':
+        id_cliente = request.form['id_cliente']
+        nombre_cliente= request.form['nombre_cliente']
+        dir_cliente = request.form['dir_cliente']
+        email_cliente = request.form['email_cliente']
+        telefono_cliente= request.form['telefono_cliente']
+        sql = 'insert into clientes values(%s,%s,%s,%s,%s)'
+        values = (id_cliente, nombre_cliente, dir_cliente, email_cliente,telefono_cliente)
+        cursor.execute(sql, values)
+        conexion.commit()
+        return redirect('/clientes')
+
+@app.route('/editCliente/<id>', methods=['GET', 'POST'])
+def editCliente(id):
+    sql = "select * from clientes where id_cliente='{0}'".format(id)
+    cursor.execute(sql)
+    clientes = cursor.fetchall()
+    conexion.commit()
+    return render_template('editCliente.html', clientes = clientes)
+
+@app.route('/updateCliente', methods=['POST'])
+def updateCliente():
+    _cedula = request.form['cedula']
+    _nombreC = request.form['nombreC']
+    _dirC = request.form['dirC']
+    _emailC = request.form['emailC']
+    _telC = request.form['telC']
+    sql = "update clientes set nom_cliente='{1}', dir_cliente='{2}', email_cliente='{3}', telefono_cliente='{4}' where id_cliente ='{0}'".format(_cedula, _nombreC, _dirC, _emailC, _telC)
+    cursor.execute(sql)
+    return redirect('/clientes')
+
+@app.route('/eliminarCliente/<id>')
+def eliminarCliente(id):
+    sql = "delete from clientes where id_cliente='{0}'".format(id)
+    cursor.execute(sql)
+    conexion.commit()
+    return redirect('/clientes')
+
+#crud destinatarios
+
+@app.route('/destinatarios')
+def destinatarios():
+    sql = 'select * from destinatario'
+    cursor.execute(sql)
+    destinatarios = cursor.fetchall()
+    conexion.commit()
+    return render_template('destinatarios.html', destinatarios=destinatarios)

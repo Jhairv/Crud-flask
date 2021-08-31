@@ -1,0 +1,49 @@
+
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="content">
+    <h1 class="logo">Agregar nuevo destinatario</h1>
+    <div class="add-form">
+    </div>
+</div>
+<form class="add-form-container" method="POST">
+	<input class="add-input" name="id_destinatario" type="text" placeholder="Cedula destinatario" required>
+	<input class="add-input" name="nom_destinatario" type="text" placeholder="Nombre del destinatario" required>
+	<input class="add-input" name="dir_destinatario" type="text" placeholder="Direccion destinatario" required>
+	<input class="add-input" name="email_destinatario" type="text" placeholder="Email destinatario" required>
+	<input class="add-input" name="telefono_destinatario" type="text" placeholder="Telefono del destinatario" required>
+	<input class="add-btn" id="submit-add" type="submit" value="Agregar destinatario">
+</form>
+<button class="add-btn" id="close">Cerrar</button>
+
+{% endblock %}
+
+
+{% block crudTable %}
+<thead>
+	<tr>
+		<th>Id destinatario</th>
+		<th>Nombre destinatario </th>
+		<th>Direccion destinatario</th>
+		<th>Email destinatario</th>
+		<th>Telefono destinatario</th>
+		<th>Acciones</th>
+	</tr>
+</thead>
+<tbody>
+	{% for destinatario in destinatarios %}
+	<tr>
+		<td>{{destinatario[0]}}</td>
+		<td>{{destinatario[1]}}</td>
+		<td>{{destinatario[2]}}</td>
+		<td>{{destinatario[3]}}</td>
+		<td>{{destinatario[4]}}</td>
+		<td>
+		  <a href="/editDestinatario/{{destinatario[0]}}">Editar</a>
+		  <a href="/eliminarDestinatario/{{destinatario[0]}}">Eliminar</a>
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>
+{% endblock %}

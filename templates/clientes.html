@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="content">
+    <h1 class="logo">Agregar nuevo cliente</h1>
+    <div class="add-form">
+    </div>
+</div>
+<form class="add-form-container" method="POST">
+	<input class="add-input" name="id_cliente" type="text" placeholder="Cedula Cliente" required>
+	<input class="add-input" name="nombre_cliente" type="text" placeholder="Nombre del Cliente" required>
+	<input class="add-input" name="dir_cliente" type="text" placeholder="Direccion Cliente" required>
+	<input class="add-input" name="email_cliente" type="text" placeholder="Email Cliente" required>
+	<input class="add-input" name="telefono_cliente" type="text" placeholder="Telefono del Cliente" required>
+	<input class="add-btn" id="submit-add" type="submit" value="Agregar Cliente">
+</form>
+<button class="add-btn" id="close">Cerrar</button>
+
+{% endblock %}
+
+
+{% block crudTable %}
+<thead>
+	<tr>
+		<th>Cedula Cliente</th>
+		<th>Nombre Cliente </th>
+		<th>Direccion Cliente</th>
+		<th>Email Cliente</th>
+		<th>Telefono Cliente</th>
+		<th>Acciones</th>
+	</tr>
+</thead>
+<tbody>
+	{% for cliente in clientes%}
+	<tr>
+		<td>{{cliente[0]}}</td>
+		<td>{{cliente[1]}}</td>
+		<td>{{cliente[2]}}</td>
+		<td>{{cliente[3]}}</td>
+		<td>{{cliente[4]}}</td>
+		<td>
+		  <a href="/editCliente/{{cliente[0]}}">Editar</a>
+		  <a href="/eliminarCliente/{{cliente[0]}}">Eliminar</a>
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>
+{% endblock %}

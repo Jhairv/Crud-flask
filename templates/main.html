@@ -24,6 +24,20 @@
         </div>
         <ul class="nav_list">
             <li>
+                <a href="/clientes">
+		    <i class='bx bx-user'></i>
+                    <span class="links_name">Clientes</span>
+                </a>
+                <span class="tooltip">Clientes</span>
+            </li>
+            <li>
+                <a href="/destinatarios">
+		    <i class='bx bxs-user-pin' ></i>
+                    <span class="links_name">Destinatarios</span>
+                </a>
+                <span class="tooltip">Destinatarios</span>
+            </li>
+            <li>
                 <a href="/">
                     <i class='bx bxs-spreadsheet'></i>
                     <span class="links_name">Registrados</span>
@@ -37,7 +51,6 @@
                     <span class="links_name">Enviados</span>
                 </a>
                 <span class="tooltip">Enviados</span>
-
             </li>
             <li>
                 <a href="#">
@@ -68,19 +81,16 @@
             </div>
         </div>
     </div>
+    <!-- contenido del home -->
     <div class="home_content">
         <div class="text"> CRUD Flask</div>
+	<!-- modal de eliminar -->
         <div class="add-btn-container">
             <button class="add-btn" id="open">+</button>
         </div>
         <div class="modal-container" id="modal-container">
             <div class="modal">
                 <!-- formulario de registro uwu -->
-                <div class="content">
-                    <h1 class="logo">Agregar nuevo Envio</h1>
-                    <div class="add-form">
-                    </div>
-                </div>
                 {% block content %} {% endblock %}
             </div>
         </div>
