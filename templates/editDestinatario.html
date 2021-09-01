@@ -1,0 +1,18 @@
+
+Formulario de edicion destinatario
+
+{% for destinatario in destinatarios %}
+<form class="add-form-container" action="/updateDestinatario" method="POST">
+	<label for="id">id destinatario</label>
+	<input class="add-input" value="{{ destinatario[0] }}" id="idD" name="idD" type="text" placeholder="id destinatario" required readonly=»readonly»>
+	<label for="nombreD">Nombre el destinatario</label>
+	<input class="add-input" value="{{ destinatario[1] }}" name="nombreD" id="nombreD" type="text" placeholder="Nombre del destinatario" required>
+	<label for="dirD">Direccion del destinatario</label>
+	<input Dlass="add-input" value="{{ destinatario[2] }}" name="dirD" id="dirD" type="text" plaDeholder="Direccion del destinatario" required>
+	<label for="emailD">Email destinatario</label>
+	<input Dlass="add-input" value="{{ destinatario[3] }}" name="emailD" id="emailD" type="text" plaDeholder="Email destinatario" required>
+	<label for="telD">Telefono destinatario</label>
+	<input Dlass="add-input" value="{{ destinatario[4] }}" name="telD" id="telD" type="text" plaDeholder="Telefono destinatario" required>
+	<input class="add-btn" id="submit-add" type="submit" value="Editar destinatario">
+</form>
+{% endfor %}

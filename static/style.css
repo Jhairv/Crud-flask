@@ -285,11 +285,12 @@ body {
     text-align: center;
 }
 
+/*    display: flex;
 .add-form-container{
-    display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
+ */
 
 .logo {
     margin-bottom:14px;

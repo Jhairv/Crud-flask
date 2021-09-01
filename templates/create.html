@@ -3,27 +3,38 @@
 {% block content %}
 
 <form class="add-form-container" method="POST">
-	<input class="add-input" name="cedula" type="text" placeholder="Cedula Cliente" required>
-	<input class="add-input" name="nombreC" type="text" placeholder="Nombre del cliente" required>
-	<input class="add-input" name="dirC" type="text" placeholder="Direccion del Cliente" required>
-	<input class="add-input" name="emailC" type="text" placeholder="Email Cliente" required>
-	<input class="add-input" name="telC" type="text" placeholder="Telefono Cliente" required>
-	<input class="add-input" name="idD" type="text" placeholder="Id Destinatario" required>
-	<input class="add-input" name="nomD" type="text" placeholder="Nombre Destinatario" required>
-	<input class="add-input" name="dirD" type="text" placeholder="Direccion Destinatario" required>
-	<input class="add-input" name="emailD" type="text" placeholder="Email destinatario" required>
-	<input class="add-input" name="telD" type="text" placeholder="Telefono destinatario" required>
-	<input class="add-input" name="idP" type="text" placeholder="Id Pedido" required>
-	<input class="add-input" name="idC" type="text" placeholder="Id conductor" required>
-	<input class="add-input" name="desP" type="text" placeholder="Descripcion paquete" required>
-	<input class="add-input" name="uniP" type="text" placeholder="Unidad medida" required>
-	<input class="add-input" name="pesoP" type="text" placeholder="Peso paquete" required>
+	<label for="id_cliente">Cedula del cliente: </label>
+	<select name="id_cliente" class="add-input">
+	{% for cliente in clientes %}
+	<option> {{cliente[0]}} </option>
+	{% endfor %}
+	</select> <br>
+	<label for="id_destinatario">Id del destinatario: </label>
+	<select name="id_destinatario" class="add-input" >
+	{% for destinatario in destinatarios%}
+	<option> {{destinatario[0]}} </option>
+	{% endfor %}
+	</select><br>
+	<label for="id_conductor">Id del conductor: </label>
+	<select name="id_conductor" class="add-input" >
+	{% for conductor in conductores%}
+	<option> {{conductor[0]}} </option>
+	{% endfor %}
+	</select> <br>
+	<label for="idP">Id del paquete: </label>
+	<input class="add-input" name="idP" type="text" placeholder="Id Pedido" required><br>
+	<label for="idP">Descripcion del paquete: </label>
+	<input class="add-input" name="desP" type="text" placeholder="Descripcion paquete" required><br>
+	<label for="idP">Unidad de medida: </label> <br>
+	<input class="add-input" name="uniP" type="text" placeholder="Unidad medida" required> <br>
+	<label for="idP">Peso del paquete: </label>
+	<input class="add-input" name="pesoP" type="text" placeholder="Peso paquete" required> <br>
+	<label for="estadoP">Estado del paquete: </label>
 	<select name="estadoP">
 	  <option>Registrado</option>
 	  <option>Enviado</option>
 	  <option>Entregado</option>
-	</select>
-
+	</select> <br>
 	<input class="add-btn" id="submit-add" type="submit" value="Agregar Envio">
 </form>
 <button class="add-btn" id="close">Cerrar</button>

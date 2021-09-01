@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{% block crudTable %}
+<thead>
+	<tr>
+		<th>Id paquete</th>
+		<th>Descripcion paquete</th>
+		<th>Estado del Paquete </th>
+		<th>Nombre cliente </th>
+		<th>Nombre destinatario</th>
+		<th>Direccion destinatario</th>
+		<th>Nombre conductor</th>
+		<th>Marca Vehiculo</th>
+		<th>Placa Transporte</th>
+		<th>Acciones</th>
+	</tr>
+</thead>
+<tbody>
+	{% for paquete in paquetes%}
+	<tr>
+		<td>{{paquete[0]}}</td>
+		<td>{{paquete[1]}}</td>
+		<td>{{paquete[2]}}</td>
+		<td>{{paquete[3]}}</td>
+		<td>{{paquete[4]}}</td>
+		<td>{{paquete[5]}}</td>
+		<td>{{paquete[6]}}</td>
+		<td>{{paquete[7]}}</td>
+		<td>{{paquete[8]}}</td>
+		<td> 
+		  <a href="/edit/{{paquete[0]}}">Editar</a>
+		  <a href="/destroy/{{paquete[0]}}">Eliminar</a>
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>
+{% endblock %}
